@@ -1,9 +1,8 @@
-name: PidginHost Auto Renew
+name: Auto-Renew-PidginHost
 
 on:
   schedule:
-    # 每 10 天运行一次 (UTC 00:00)
-    - cron: '0 0 */10 * *'
+    - cron: '0 1 */10 * *' # 每 10 天运行一次 (UTC 01:00)
   workflow_dispatch:
 
 jobs:
@@ -32,7 +31,7 @@ jobs:
       - name: 🛠️ 安装系统依赖和 Python 依赖
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb libnss3 libatk-bridge2.0-0 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libpango-1.0-0 libcairo2 libasound2 libatspi2.0-0
+          sudo apt-get install -y xvfb libnss3 libatk-bridge2.0-0 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libpango-1.0-0 libcairo2 libasound2t64 libatspi2.0-0
           pip install requests playwright
           playwright install chromium
 
